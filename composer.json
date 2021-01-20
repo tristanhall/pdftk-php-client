@@ -1,0 +1,41 @@
+{
+  "name": "minutemanservices/mms-pdftk-php-client",
+  "description": "PHP Client Library for generating PDFs from HTML using our PDFtk Microservice",
+  "type": "library",
+  "license": "AGPL-3.0-only",
+  "version": "0.1.0",
+  "homepage": "https://bitbucket.org/minutemanservices/mms-pdftk-php-client",
+  "authors": [
+    {
+      "name": "Tristan Hall",
+      "email": "tristanh@mm.services"
+    },
+    {
+      "name": "Malcolm Hall",
+      "email": "malcolmh@mm.services"
+    }
+  ],
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "MinuteMan\\PdftkClient\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=7.4.0",
+    "illuminate/support": ">=5.0.0",
+    "guzzlehttp/guzzle": "^7.2",
+    "konekt/enum": "^3.1",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "MinuteMan\\PdftkClient\\PdftkServiceProvider"
+      ]
+    }
+  }
+}

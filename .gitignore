@@ -48,3 +48,7 @@ Thumbs.db
 *.mov
 *.wmv
 
+# Composer Install Files
+/vendor
+composer.phar
+composer.lock
