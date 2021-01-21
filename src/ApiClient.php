@@ -20,7 +20,7 @@ class ApiClient
 
     const USER_AGENT = 'mms-pdftk-php-client';
 
-    const VERSION = '0.1.0';
+    const VERSION = '0.1.1';
 
     /**
      * The API URL to use for HTTP requests.

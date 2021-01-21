@@ -1,10 +1,10 @@
 {
-  "name": "minutemanservices/mms-pdftk-php-client",
+  "name": "minutemanservices/pdftk-php-client",
   "description": "PHP Client Library for generating PDFs from HTML using our PDFtk Microservice",
   "type": "library",
   "license": "AGPL-3.0-only",
-  "version": "0.1.0",
-  "homepage": "https://bitbucket.org/minutemanservices/mms-pdftk-php-client",
+  "version": "0.1.1",
+  "homepage": "https://github.com/minutemanservices/pdftk-php-client",
   "authors": [
     {
       "name": "Tristan Hall",
