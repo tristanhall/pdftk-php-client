@@ -18,6 +18,35 @@ use Psr\Http\Message\ResponseInterface;
  * Microservice.
  *
  * @package MinuteMan\PdftkClient
+ * @method self setInputPw()
+ * @method self setEncrypt40bit()
+ * @method self setEncrypt128bit()
+ * @method self setFlatten()
+ * @method self setNeedAppearances()
+ * @method self setCompress()
+ * @method self setUncompress()
+ * @method self setKeepFirstId()
+ * @method self setKeepFinalId()
+ * @method self setDropXfa()
+ * @method self setAllow($value)
+ * @method self setOwnerPw($value)
+ * @method self setUserPw($value)
+ * @method self unsetInputPw()
+ * @method self unsetEncrypt40bit()
+ * @method self unsetEncrypt128bit()
+ * @method self unsetFlatten()
+ * @method self unsetNeedAppearances()
+ * @method self unsetCompress()
+ * @method self unsetUncompress()
+ * @method self unsetKeepFirstId()
+ * @method self unsetKeepFinalId()
+ * @method self unsetDropXfa()
+ * @method self unsetAllow()
+ * @method self unsetOwnerPw()
+ * @method self unsetUserPw()
+ * @method mixed getAllow()
+ * @method mixed getOwnerPw()
+ * @method mixed getUserPw()
  */
 class PdftkDocument
 {
