@@ -20,7 +20,7 @@ class Stamp extends Command
     protected PdfSource $sourcePdf;
 
     /**
-     * Multistamp constructor.
+     * Stamp constructor.
      *
      * @param PdfSource|null $sourcePdf
      */

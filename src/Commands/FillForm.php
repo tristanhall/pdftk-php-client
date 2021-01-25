@@ -18,6 +18,16 @@ class FillForm extends Command
     protected array $fieldData = [];
 
     /**
+     * FillForm constructor.
+     *
+     * @param array $fieldData
+     */
+    public function __construct(array $fieldData = [])
+    {
+        $this->setFieldData($fieldData);
+    }
+
+    /**
      * Set the value of an individual field.
      *
      * @param string $fieldName

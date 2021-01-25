@@ -42,6 +42,22 @@ class Rotate extends Command
     protected ?string $qualifier = null;
 
     /**
+     * Rotate constructor.
+     *
+     * @param int         $rotation
+     * @param int         $startPage
+     * @param int|null    $endPage
+     * @param string|null $qualifier
+     */
+    public function __construct(int $rotation = 0, int $startPage = 0, ?int $endPage = null, ?string $qualifier = null)
+    {
+        $this->setRotation($rotation);
+        $this->setStartPage($startPage);
+        $this->setEndPage($endPage);
+        $this->setQualifier($qualifier);
+    }
+
+    /**
      * Returns the degrees to rotate each page.
      *
      * @return int
