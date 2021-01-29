@@ -20,7 +20,7 @@ class ApiClient
 
     const USER_AGENT = 'mms-pdftk-php-client';
 
-    const VERSION = '0.1.3';
+    const VERSION = '0.1.4';
 
     /**
      * The API URL to use for HTTP requests.
@@ -89,6 +89,7 @@ class ApiClient
             [
                 'User-Agent' => sprintf('%s/%s', self::USER_AGENT, self::VERSION),
                 'X-Api-Key'  => $this->apiKey,
+                'Accept'     => 'application/pdf',
             ],
             json_encode($postData, JSON_THROW_ON_ERROR)
         );
