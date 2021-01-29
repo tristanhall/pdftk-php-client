@@ -344,19 +344,14 @@ class PdftkDocument
     }
 
     /**
-     * Returns a stream resource of the API response with automatic Base64 decoding of the content.
+     * Returns a stream resource of the API response content.
      *
      * @throws JsonException|GuzzleException
      * @return resource|null
      */
     public function getStream()
     {
-        $byteStream = $this->getApiResponse()->getBody()->detach();
-
-        // Base64 decode the stream data
-        stream_filter_append($byteStream, 'convert.base64-decode');
-
-        return $byteStream;
+        return $this->getApiResponse()->getBody()->detach();
     }
 
     /**
