@@ -256,20 +256,12 @@ class PdftkDocument
      */
     public function addOption(PdftkOption $option, $value): self
     {
-        if ($option->isValidValue($value)) {
-            Arr::set($this->options, $option->value(), [
-                'enabled' => true,
-                'value'   => $value,
-            ]);
+        Arr::set($this->options, $option->value(), [
+            'enabled' => true,
+            'value'   => $value,
+        ]);
 
-            return $this;
-        } else {
-            throw new InvalidArgumentException(sprintf(
-                'Invalid value "%s" provided for "%s"',
-                (string)$value,
-                $option->label()
-            ));
-        }
+        return $this;
     }
 
     /**
