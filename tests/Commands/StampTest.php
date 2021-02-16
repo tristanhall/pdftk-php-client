@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Class StampTest
- * 
+ *
  * @package Tests\Commands
  */
 class StampTest extends TestCase

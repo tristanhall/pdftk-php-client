@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Class MultibackgroundTest
- * 
+ *
  * @package Tests\Commands
  */
 class MultibackgroundTest extends TestCase

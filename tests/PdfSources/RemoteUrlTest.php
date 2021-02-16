@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class RemoteUrlTest extends TestCase
 {
-    
+
     /**
      * Test for __construct() using the default arguments.
      */
