@@ -5,6 +5,11 @@ namespace Tests\Commands;
 use MinuteMan\PdftkClient\Commands\Rotate;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Class RotateTest
+ *
+ * @package Tests\Commands
+ */
 class RotateTest extends TestCase
 {
 

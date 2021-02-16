@@ -8,6 +8,11 @@ use MinuteMan\PdftkClient\PdfSources\PdfSource;
 use MinuteMan\PdftkClient\PdfSources\RemoteUrl;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Class StampTest
+ * 
+ * @package Tests\Commands
+ */
 class StampTest extends TestCase
 {
 
