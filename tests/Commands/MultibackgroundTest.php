@@ -5,6 +5,11 @@ namespace Tests\Commands;
 use MinuteMan\PdftkClient\Commands\Multibackground;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Class MultibackgroundTest
+ * 
+ * @package Tests\Commands
+ */
 class MultibackgroundTest extends TestCase
 {
 
