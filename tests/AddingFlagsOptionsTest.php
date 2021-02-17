@@ -32,18 +32,43 @@ class AddingFlagsOptionsTest extends TestCase
     }
 
     /**
+     * Create a new instance of WkhtmltopdfDocument and set HTML markup.
+     *
+     * @return PdftkDocument
+     */
+    protected function getDocumentInstance(): PdftkDocument
+    {
+        $doc = new PdftkDocument($this->apiClient);
+        $doc->setSourcePdf(new RemoteUrl());
+        $doc->setCommand(new FillForm());
+
+        return $doc;
+    }
+
+    /**
+     * Gets the decoded JSON body from the request that a document generates.
+     *
+     * @param PdftkDocument $doc
+     * @return mixed
+     * @throws JsonException
+     */
+    protected function getRequestBodyFromDoc(PdftkDocument $doc)
+    {
+        $request = $doc->getApiClient()->makeRequest($doc->getParams());
+
+        return json_decode($request->getBody()->getContents());
+    }
+
+    /**
      * Test for setInputPw()
      *
      * @throws JsonException
      */
     public function testSetInputPw()
     {
-        $doc = new PdftkDocument($this->apiClient);
-        $doc->setSourcePdf(new RemoteUrl());
-        $doc->setCommand(new FillForm());
+        $doc = $this->getDocumentInstance();
         $doc->setInputPw();
-        $request = $doc->getApiClient()->makeRequest($doc->getParams());
-        $body = json_decode($request->getBody()->getContents());
+        $body = $this->getRequestBodyFromDoc($doc);
 
         $this->assertContains('input_pw', $body->flags);
     }
@@ -55,12 +80,9 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testSetFlatten()
     {
-        $doc = new PdftkDocument($this->apiClient);
-        $doc->setSourcePdf(new RemoteUrl());
-        $doc->setCommand(new FillForm());
+        $doc = $this->getDocumentInstance();
         $doc->setFlatten();
-        $request = $doc->getApiClient()->makeRequest($doc->getParams());
-        $body = json_decode($request->getBody()->getContents());
+        $body = $this->getRequestBodyFromDoc($doc);
 
         $this->assertContains('flatten', $body->flags);
     }
@@ -72,12 +94,9 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testSetNeedAppearances()
     {
-        $doc = new PdftkDocument($this->apiClient);
-        $doc->setSourcePdf(new RemoteUrl());
-        $doc->setCommand(new FillForm());
+        $doc = $this->getDocumentInstance();
         $doc->setNeedAppearances();
-        $request = $doc->getApiClient()->makeRequest($doc->getParams());
-        $body = json_decode($request->getBody()->getContents());
+        $body = $this->getRequestBodyFromDoc($doc);
 
         $this->assertContains('need_appearances', $body->flags);
     }
@@ -89,12 +108,9 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testSetCompress()
     {
-        $doc = new PdftkDocument($this->apiClient);
-        $doc->setSourcePdf(new RemoteUrl());
-        $doc->setCommand(new FillForm());
+        $doc = $this->getDocumentInstance();
         $doc->setCompress();
-        $request = $doc->getApiClient()->makeRequest($doc->getParams());
-        $body = json_decode($request->getBody()->getContents());
+        $body = $this->getRequestBodyFromDoc($doc);
 
         $this->assertContains('compress', $body->flags);
     }
@@ -106,12 +122,9 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testSetUncompress()
     {
-        $doc = new PdftkDocument($this->apiClient);
-        $doc->setSourcePdf(new RemoteUrl());
-        $doc->setCommand(new FillForm());
+        $doc = $this->getDocumentInstance();
         $doc->setUncompress();
-        $request = $doc->getApiClient()->makeRequest($doc->getParams());
-        $body = json_decode($request->getBody()->getContents());
+        $body = $this->getRequestBodyFromDoc($doc);
 
         $this->assertContains('uncompress', $body->flags);
     }
@@ -123,12 +136,9 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testSetKeepFirstId()
     {
-        $doc = new PdftkDocument($this->apiClient);
-        $doc->setSourcePdf(new RemoteUrl());
-        $doc->setCommand(new FillForm());
+        $doc = $this->getDocumentInstance();
         $doc->setKeepFirstId();
-        $request = $doc->getApiClient()->makeRequest($doc->getParams());
-        $body = json_decode($request->getBody()->getContents());
+        $body = $this->getRequestBodyFromDoc($doc);
 
         $this->assertContains('keep_first_id', $body->flags);
     }
@@ -140,12 +150,9 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testSetKeepFinalId()
     {
-        $doc = new PdftkDocument($this->apiClient);
-        $doc->setSourcePdf(new RemoteUrl());
-        $doc->setCommand(new FillForm());
+        $doc = $this->getDocumentInstance();
         $doc->setKeepFinalId();
-        $request = $doc->getApiClient()->makeRequest($doc->getParams());
-        $body = json_decode($request->getBody()->getContents());
+        $body = $this->getRequestBodyFromDoc($doc);
 
         $this->assertContains('keep_final_id', $body->flags);
     }
@@ -157,12 +164,9 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testSetDropXfa()
     {
-        $doc = new PdftkDocument($this->apiClient);
-        $doc->setSourcePdf(new RemoteUrl());
-        $doc->setCommand(new FillForm());
+        $doc = $this->getDocumentInstance();
         $doc->setDropXfa();
-        $request = $doc->getApiClient()->makeRequest($doc->getParams());
-        $body = json_decode($request->getBody()->getContents());
+        $body = $this->getRequestBodyFromDoc($doc);
 
         $this->assertContains('drop_xfa', $body->flags);
     }
@@ -174,13 +178,10 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testUnsetInputPw()
     {
-        $doc = new PdftkDocument($this->apiClient);
-        $doc->setSourcePdf(new RemoteUrl());
-        $doc->setCommand(new FillForm());
+        $doc = $this->getDocumentInstance();
         $doc->setInputPw();
         $doc->unsetInputPw();
-        $request = $doc->getApiClient()->makeRequest($doc->getParams());
-        $body = json_decode($request->getBody()->getContents());
+        $body = $this->getRequestBodyFromDoc($doc);
 
         $this->assertNotContains('input_pw', $body->flags);
     }
@@ -192,13 +193,10 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testUnsetFlatten()
     {
-        $doc = new PdftkDocument($this->apiClient);
-        $doc->setSourcePdf(new RemoteUrl());
-        $doc->setCommand(new FillForm());
+        $doc = $this->getDocumentInstance();
         $doc->setFlatten();
         $doc->unsetFlatten();
-        $request = $doc->getApiClient()->makeRequest($doc->getParams());
-        $body = json_decode($request->getBody()->getContents());
+        $body = $this->getRequestBodyFromDoc($doc);
 
         $this->assertNotContains('flatten', $body->flags);
     }
@@ -210,13 +208,10 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testUnsetNeedAppearances()
     {
-        $doc = new PdftkDocument($this->apiClient);
-        $doc->setSourcePdf(new RemoteUrl());
-        $doc->setCommand(new FillForm());
+        $doc = $this->getDocumentInstance();
         $doc->setNeedAppearances();
         $doc->unsetNeedAppearances();
-        $request = $doc->getApiClient()->makeRequest($doc->getParams());
-        $body = json_decode($request->getBody()->getContents());
+        $body = $this->getRequestBodyFromDoc($doc);
 
         $this->assertNotContains('need_appearances', $body->flags);
     }
@@ -228,13 +223,10 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testUnsetCompress()
     {
-        $doc = new PdftkDocument($this->apiClient);
-        $doc->setSourcePdf(new RemoteUrl());
-        $doc->setCommand(new FillForm());
+        $doc = $this->getDocumentInstance();
         $doc->setCompress();
         $doc->unsetCompress();
-        $request = $doc->getApiClient()->makeRequest($doc->getParams());
-        $body = json_decode($request->getBody()->getContents());
+        $body = $this->getRequestBodyFromDoc($doc);
 
         $this->assertNotContains('compress', $body->flags);
     }
@@ -246,13 +238,10 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testUnsetUncompress()
     {
-        $doc = new PdftkDocument($this->apiClient);
-        $doc->setSourcePdf(new RemoteUrl());
-        $doc->setCommand(new FillForm());
+        $doc = $this->getDocumentInstance();
         $doc->setUncompress();
         $doc->unsetUncompress();
-        $request = $doc->getApiClient()->makeRequest($doc->getParams());
-        $body = json_decode($request->getBody()->getContents());
+        $body = $this->getRequestBodyFromDoc($doc);
 
         $this->assertNotContains('uncompress', $body->flags);
     }
@@ -264,13 +253,10 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testUnsetKeepFirstId()
     {
-        $doc = new PdftkDocument($this->apiClient);
-        $doc->setSourcePdf(new RemoteUrl());
-        $doc->setCommand(new FillForm());
+        $doc = $this->getDocumentInstance();
         $doc->setKeepFirstId();
         $doc->unsetKeepFirstId();
-        $request = $doc->getApiClient()->makeRequest($doc->getParams());
-        $body = json_decode($request->getBody()->getContents());
+        $body = $this->getRequestBodyFromDoc($doc);
 
         $this->assertNotContains('keep_first_id', $body->flags);
     }
@@ -282,13 +268,10 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testUnsetKeepFinalId()
     {
-        $doc = new PdftkDocument($this->apiClient);
-        $doc->setSourcePdf(new RemoteUrl());
-        $doc->setCommand(new FillForm());
+        $doc = $this->getDocumentInstance();
         $doc->setKeepFinalId();
         $doc->unsetKeepFinalId();
-        $request = $doc->getApiClient()->makeRequest($doc->getParams());
-        $body = json_decode($request->getBody()->getContents());
+        $body = $this->getRequestBodyFromDoc($doc);
 
         $this->assertNotContains('keep_final_id', $body->flags);
     }
@@ -300,13 +283,10 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testUnsetDropXfa()
     {
-        $doc = new PdftkDocument($this->apiClient);
-        $doc->setSourcePdf(new RemoteUrl());
-        $doc->setCommand(new FillForm());
+        $doc = $this->getDocumentInstance();
         $doc->setDropXfa();
         $doc->unsetDropXfa();
-        $request = $doc->getApiClient()->makeRequest($doc->getParams());
-        $body = json_decode($request->getBody()->getContents());
+        $body = $this->getRequestBodyFromDoc($doc);
 
         $this->assertNotContains('drop_xfa', $body->flags);
     }
@@ -318,14 +298,11 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testUnsetAllow()
     {
-        $doc = new PdftkDocument($this->apiClient);
-        $doc->setSourcePdf(new RemoteUrl());
-        $doc->setCommand(new FillForm());
+        $doc = $this->getDocumentInstance();
         $optionValue = null;
         $doc->setAllow($optionValue);
         $doc->unsetAllow();
-        $request = $doc->getApiClient()->makeRequest($doc->getParams());
-        $body = json_decode($request->getBody()->getContents());
+        $body = $this->getRequestBodyFromDoc($doc);
 
         $this->assertNotContains('allow', $body->options);
     }
@@ -337,14 +314,11 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testUnsetOwnerPw()
     {
-        $doc = new PdftkDocument($this->apiClient);
-        $doc->setSourcePdf(new RemoteUrl());
-        $doc->setCommand(new FillForm());
+        $doc = $this->getDocumentInstance();
         $optionValue = null;
         $doc->setOwnerPw($optionValue);
         $doc->unsetOwnerPw();
-        $request = $doc->getApiClient()->makeRequest($doc->getParams());
-        $body = json_decode($request->getBody()->getContents());
+        $body = $this->getRequestBodyFromDoc($doc);
 
         $this->assertNotContains('owner_pw', $body->options);
     }
@@ -356,14 +330,11 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testUnsetUserPw()
     {
-        $doc = new PdftkDocument($this->apiClient);
-        $doc->setSourcePdf(new RemoteUrl());
-        $doc->setCommand(new FillForm());
+        $doc = $this->getDocumentInstance();
         $optionValue = null;
         $doc->setUserPw($optionValue);
         $doc->unsetUserPw();
-        $request = $doc->getApiClient()->makeRequest($doc->getParams());
-        $body = json_decode($request->getBody()->getContents());
+        $body = $this->getRequestBodyFromDoc($doc);
 
         $this->assertNotContains('user_pw', $body->options);
     }
