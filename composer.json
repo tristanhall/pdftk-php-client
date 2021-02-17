@@ -3,7 +3,7 @@
   "description": "PHP Client Library for generating PDFs from HTML using our PDFtk Microservice",
   "type": "library",
   "license": "AGPL-3.0-only",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "homepage": "https://bitbucket.org/minutemanservices/pdftk-php-client",
   "authors": [
     {
