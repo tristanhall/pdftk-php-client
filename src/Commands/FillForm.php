@@ -76,7 +76,7 @@ class FillForm extends Command
     public function unsetField(string $fieldName): self
     {
         if ($this->hasField($fieldName)) {
-            unset($this->fieldData, $fieldName);
+            unset($this->fieldData[$fieldName]);
         }
 
         return $this;
