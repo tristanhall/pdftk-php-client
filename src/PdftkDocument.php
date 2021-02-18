@@ -303,7 +303,7 @@ class PdftkDocument
      *
      * @return array
      */
-    protected function getParams(): array
+    public function getParams(): array
     {
         $sourcePdf = $this->getSourcePdf();
         $command = $this->getCommand();
