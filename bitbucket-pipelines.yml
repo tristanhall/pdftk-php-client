@@ -1,0 +1,20 @@
+pipelines:
+  branches:
+    main:
+    - step:
+        name: Run Unit Tests
+        deployment: Production
+        image: ubuntu:20.04
+        caches:
+          - composer
+        script:
+          - echo "Run Unit Tests Here"
+    develop:
+    - step:
+        name: Deploy to AWS
+        deployment: Test
+        image: ubuntu:20.04
+        caches:
+          - composer
+        script:
+          - echo "Run Unit Tests Here"

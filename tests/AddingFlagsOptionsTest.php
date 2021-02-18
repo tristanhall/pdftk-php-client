@@ -20,10 +20,10 @@ class AddingFlagsOptionsTest extends TestCase
     /**
      * @var ApiClient
      */
-    protected $apiClient;
+    protected ApiClient $apiClient;
 
     /**
-     * setUp()
+     * This method is called before each test.
      */
     public function setUp(): void
     {
@@ -36,7 +36,7 @@ class AddingFlagsOptionsTest extends TestCase
      *
      * @return PdftkDocument
      */
-    protected function getDocumentInstance(): PdftkDocument
+    protected function makeDocumentInstance(): PdftkDocument
     {
         $doc = new PdftkDocument($this->apiClient);
         $doc->setSourcePdf(new RemoteUrl());
@@ -66,7 +66,7 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testSetInputPw()
     {
-        $doc = $this->getDocumentInstance();
+        $doc = $this->makeDocumentInstance();
         $doc->setInputPw();
         $body = $this->getRequestBodyFromDoc($doc);
 
@@ -80,7 +80,7 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testSetFlatten()
     {
-        $doc = $this->getDocumentInstance();
+        $doc = $this->makeDocumentInstance();
         $doc->setFlatten();
         $body = $this->getRequestBodyFromDoc($doc);
 
@@ -94,7 +94,7 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testSetNeedAppearances()
     {
-        $doc = $this->getDocumentInstance();
+        $doc = $this->makeDocumentInstance();
         $doc->setNeedAppearances();
         $body = $this->getRequestBodyFromDoc($doc);
 
@@ -108,7 +108,7 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testSetCompress()
     {
-        $doc = $this->getDocumentInstance();
+        $doc = $this->makeDocumentInstance();
         $doc->setCompress();
         $body = $this->getRequestBodyFromDoc($doc);
 
@@ -122,7 +122,7 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testSetUncompress()
     {
-        $doc = $this->getDocumentInstance();
+        $doc = $this->makeDocumentInstance();
         $doc->setUncompress();
         $body = $this->getRequestBodyFromDoc($doc);
 
@@ -136,7 +136,7 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testSetKeepFirstId()
     {
-        $doc = $this->getDocumentInstance();
+        $doc = $this->makeDocumentInstance();
         $doc->setKeepFirstId();
         $body = $this->getRequestBodyFromDoc($doc);
 
@@ -150,7 +150,7 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testSetKeepFinalId()
     {
-        $doc = $this->getDocumentInstance();
+        $doc = $this->makeDocumentInstance();
         $doc->setKeepFinalId();
         $body = $this->getRequestBodyFromDoc($doc);
 
@@ -164,7 +164,7 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testSetDropXfa()
     {
-        $doc = $this->getDocumentInstance();
+        $doc = $this->makeDocumentInstance();
         $doc->setDropXfa();
         $body = $this->getRequestBodyFromDoc($doc);
 
@@ -178,7 +178,7 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testUnsetInputPw()
     {
-        $doc = $this->getDocumentInstance();
+        $doc = $this->makeDocumentInstance();
         $doc->setInputPw();
         $doc->unsetInputPw();
         $body = $this->getRequestBodyFromDoc($doc);
@@ -193,7 +193,7 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testUnsetFlatten()
     {
-        $doc = $this->getDocumentInstance();
+        $doc = $this->makeDocumentInstance();
         $doc->setFlatten();
         $doc->unsetFlatten();
         $body = $this->getRequestBodyFromDoc($doc);
@@ -208,7 +208,7 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testUnsetNeedAppearances()
     {
-        $doc = $this->getDocumentInstance();
+        $doc = $this->makeDocumentInstance();
         $doc->setNeedAppearances();
         $doc->unsetNeedAppearances();
         $body = $this->getRequestBodyFromDoc($doc);
@@ -223,7 +223,7 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testUnsetCompress()
     {
-        $doc = $this->getDocumentInstance();
+        $doc = $this->makeDocumentInstance();
         $doc->setCompress();
         $doc->unsetCompress();
         $body = $this->getRequestBodyFromDoc($doc);
@@ -238,7 +238,7 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testUnsetUncompress()
     {
-        $doc = $this->getDocumentInstance();
+        $doc = $this->makeDocumentInstance();
         $doc->setUncompress();
         $doc->unsetUncompress();
         $body = $this->getRequestBodyFromDoc($doc);
@@ -253,7 +253,7 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testUnsetKeepFirstId()
     {
-        $doc = $this->getDocumentInstance();
+        $doc = $this->makeDocumentInstance();
         $doc->setKeepFirstId();
         $doc->unsetKeepFirstId();
         $body = $this->getRequestBodyFromDoc($doc);
@@ -268,7 +268,7 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testUnsetKeepFinalId()
     {
-        $doc = $this->getDocumentInstance();
+        $doc = $this->makeDocumentInstance();
         $doc->setKeepFinalId();
         $doc->unsetKeepFinalId();
         $body = $this->getRequestBodyFromDoc($doc);
@@ -283,7 +283,7 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testUnsetDropXfa()
     {
-        $doc = $this->getDocumentInstance();
+        $doc = $this->makeDocumentInstance();
         $doc->setDropXfa();
         $doc->unsetDropXfa();
         $body = $this->getRequestBodyFromDoc($doc);
@@ -298,7 +298,7 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testUnsetAllow()
     {
-        $doc = $this->getDocumentInstance();
+        $doc = $this->makeDocumentInstance();
         $optionValue = null;
         $doc->setAllow($optionValue);
         $doc->unsetAllow();
@@ -314,7 +314,7 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testUnsetOwnerPw()
     {
-        $doc = $this->getDocumentInstance();
+        $doc = $this->makeDocumentInstance();
         $optionValue = null;
         $doc->setOwnerPw($optionValue);
         $doc->unsetOwnerPw();
@@ -330,7 +330,7 @@ class AddingFlagsOptionsTest extends TestCase
      */
     public function testUnsetUserPw()
     {
-        $doc = $this->getDocumentInstance();
+        $doc = $this->makeDocumentInstance();
         $optionValue = null;
         $doc->setUserPw($optionValue);
         $doc->unsetUserPw();
