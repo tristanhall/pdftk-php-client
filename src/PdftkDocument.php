@@ -303,7 +303,7 @@ class PdftkDocument
      *
      * @return array
      */
-    protected function getParams(): array
+    public function getParams(): array
     {
         $sourcePdf = $this->getSourcePdf();
         $command = $this->getCommand();
@@ -312,7 +312,10 @@ class PdftkDocument
             if ($command instanceof Command) {
                 return [
                     $sourcePdf->getParamName() => $sourcePdf->getParamValue(),
-                    $command->getCommandName() => $command->getParams(),
+                    'command'                  => [
+                        'name'   => $command->getCommandName(),
+                        'params' => $command->getParams(),
+                    ],
                     'flags'                    => $this->getFlags(),
                     'options'                  => $this->getOptions(),
                 ];
