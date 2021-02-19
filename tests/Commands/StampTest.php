@@ -29,7 +29,7 @@ class StampTest extends TestCase
             $result = $e;
         }
 
-        $this->assertTrue($result instanceof Error);
+        $this->assertInstanceOf(Error::class, $result);
     }
 
     /**
@@ -54,7 +54,7 @@ class StampTest extends TestCase
         $cmd = new Stamp($sourcePdf);
         $result = $cmd->getSourcePdf();
 
-        $this->assertTrue($result instanceof RemoteUrl);
+        $this->assertInstanceOf(RemoteUrl::class, $result);
     }
 
     /**

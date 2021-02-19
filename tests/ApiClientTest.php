@@ -73,7 +73,7 @@ class ApiClientTest extends TestCase
         $postData = [];
         $result = $apiClient->makeRequest($postData);
 
-        $this->assertTrue($result instanceof Psr7Request);
+        $this->assertInstanceOf(Psr7Request::class, $result);
     }
 
     /**
@@ -87,7 +87,7 @@ class ApiClientTest extends TestCase
         $postData = ['one' => 1];
         $result = $apiClient->makeRequest($postData);
 
-        $this->assertTrue($result instanceof Psr7Request);
+        $this->assertInstanceOf(Psr7Request::class, $result);
     }
 
 }

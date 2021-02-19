@@ -81,8 +81,8 @@ class AddingCommandsTest extends TestCase
         $doc->setCommand($cmd);
         $body = $this->getRequestBodyFromDoc($doc);
 
-        $this->assertObjectHasAttribute($cmd->getCommandName(), $body);
-        $this->assertEquals($cmd->getParams(), (array)$body->{$cmd->getCommandName()});
+        $this->assertEquals($cmd->getCommandName(), $body->command->name);
+        $this->assertEquals($cmd->getParams(), (array)$body->command->params);
     }
 
     /**
@@ -97,8 +97,8 @@ class AddingCommandsTest extends TestCase
         $doc->setCommand($cmd);
         $body = $this->getRequestBodyFromDoc($doc);
 
-        $this->assertObjectHasAttribute($cmd->getCommandName(), $body);
-        $this->assertEquals($this->sourceUrl, $body->background->source_url);
+        $this->assertEquals($cmd->getCommandName(), $body->command->name);
+        $this->assertEquals($this->sourceUrl, $body->command->params->source_url);
     }
 
     /**
@@ -113,8 +113,8 @@ class AddingCommandsTest extends TestCase
         $doc->setCommand($cmd);
         $body = $this->getRequestBodyFromDoc($doc);
 
-        $this->assertObjectHasAttribute($cmd->getCommandName(), $body);
-        $this->assertEquals($this->sourceUrl, $body->multibackground->source_url);
+        $this->assertEquals($cmd->getCommandName(), $body->command->name);
+        $this->assertEquals($this->sourceUrl, $body->command->params->source_url);
     }
 
     /**
@@ -129,8 +129,8 @@ class AddingCommandsTest extends TestCase
         $doc->setCommand($cmd);
         $body = $this->getRequestBodyFromDoc($doc);
 
-        $this->assertObjectHasAttribute($cmd->getCommandName(), $body);
-        $this->assertEquals($this->sourceUrl, $body->multistamp->source_url);
+        $this->assertEquals($cmd->getCommandName(), $body->command->name);
+        $this->assertEquals($this->sourceUrl, $body->command->params->source_url);
     }
 
     /**
@@ -145,8 +145,8 @@ class AddingCommandsTest extends TestCase
         $doc->setCommand($cmd);
         $body = $this->getRequestBodyFromDoc($doc);
 
-        $this->assertObjectHasAttribute($cmd->getCommandName(), $body);
-        $this->assertEquals($this->sourceUrl, $body->stamp->source_url);
+        $this->assertEquals($cmd->getCommandName(), $body->command->name);
+        $this->assertEquals($this->sourceUrl, $body->command->params->source_url);
     }
 
     /**
@@ -161,11 +161,12 @@ class AddingCommandsTest extends TestCase
         $doc->setCommand($cmd);
         $body = $this->getRequestBodyFromDoc($doc);
 
-        $this->assertObjectHasAttribute($cmd->getCommandName(), $body);
-        $this->assertEquals(90, $body->rotate->rotation);
-        $this->assertEquals(1, $body->rotate->start);
-        $this->assertEquals(4, $body->rotate->end);
-        $this->assertEquals('even', $body->rotate->qualifier);
+        print_r($body);
+        $this->assertEquals($cmd->getCommandName(), $body->command->name);
+        $this->assertEquals(90, $body->command->params->rotation);
+        $this->assertEquals(1, $body->command->params->start);
+        $this->assertEquals(4, $body->command->params->end);
+        $this->assertEquals('even', $body->command->params->qualifier);
     }
 
 }
