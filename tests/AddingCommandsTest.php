@@ -161,7 +161,6 @@ class AddingCommandsTest extends TestCase
         $doc->setCommand($cmd);
         $body = $this->getRequestBodyFromDoc($doc);
 
-        print_r($body);
         $this->assertEquals($cmd->getCommandName(), $body->command->name);
         $this->assertEquals(90, $body->command->params->rotation);
         $this->assertEquals(1, $body->command->params->start);
