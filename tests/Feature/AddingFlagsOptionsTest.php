@@ -183,7 +183,7 @@ class AddingFlagsOptionsTest extends TestCase
         $doc->setAllow($optionValue);
         $body = $this->getRequestBodyFromDoc($doc);
 
-        $this->assertContains('allow', $body->options);
+        $this->assertObjectHasAttribute('allow', $body->options);
     }
 
     /**
@@ -198,7 +198,7 @@ class AddingFlagsOptionsTest extends TestCase
         $doc->setOwnerPw($optionValue);
         $body = $this->getRequestBodyFromDoc($doc);
 
-        $this->assertContains('owner_pw', $body->options);
+        $this->assertObjectHasAttribute('owner_pw', $body->options);
     }
 
     /**
@@ -213,7 +213,7 @@ class AddingFlagsOptionsTest extends TestCase
         $doc->setUserPw($optionValue);
         $body = $this->getRequestBodyFromDoc($doc);
 
-        $this->assertContains('user_pw', $body->options);
+        $this->assertObjectHasAttribute('user_pw', $body->options);
     }
 
 }
