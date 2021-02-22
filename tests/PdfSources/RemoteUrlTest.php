@@ -15,6 +15,7 @@ class RemoteUrlTest extends TestCase
     {
         $file = new RemoteUrl();
 
+        $this->assertNotNull($file->getRemoteUrl());
         $this->assertEmpty($file->getRemoteUrl());
     }
 
@@ -27,16 +28,6 @@ class RemoteUrlTest extends TestCase
         $file = new RemoteUrl($url);
 
         $this->assertEquals($url, $file->getRemoteUrl());
-    }
-
-    /**
-     * Test for __construct() passing a non-string as the argument.
-     */
-    public function testConstructNonStringArg()
-    {
-        $file = new RemoteUrl(1);
-
-        $this->assertEmpty($file->getRemoteUrl());
     }
 
     /**

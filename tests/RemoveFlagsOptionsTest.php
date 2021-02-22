@@ -1,5 +1,6 @@
 <?php
 
+
 namespace Tests;
 
 use JsonException;
@@ -10,11 +11,11 @@ use MinuteMan\PdftkClient\PdftkDocument;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class AddingFlagsOptionsTest
+ * Class RemoveFlagsOptionsTest
  *
  * @package Tests
  */
-class AddingFlagsOptionsTest extends TestCase
+class RemoveFlagsOptionsTest extends TestCase
 {
 
     /**
@@ -60,160 +61,171 @@ class AddingFlagsOptionsTest extends TestCase
     }
 
     /**
-     * Test for setInputPw()
+     * Test for unsetInputPw()
      *
      * @throws JsonException
      */
-    public function testSetInputPw()
+    public function testUnsetInputPw()
     {
         $doc = $this->makeDocumentInstance();
         $doc->setInputPw();
+        $doc->unsetInputPw();
         $body = $this->getRequestBodyFromDoc($doc);
 
-        $this->assertContains('input_pw', $body->flags);
+        $this->assertNotContains('input_pw', $body->flags);
     }
 
     /**
-     * Test for setFlatten()
+     * Test for unsetFlatten()
      *
      * @throws JsonException
      */
-    public function testSetFlatten()
+    public function testUnsetFlatten()
     {
         $doc = $this->makeDocumentInstance();
         $doc->setFlatten();
+        $doc->unsetFlatten();
         $body = $this->getRequestBodyFromDoc($doc);
 
-        $this->assertContains('flatten', $body->flags);
+        $this->assertNotContains('flatten', $body->flags);
     }
 
     /**
-     * Test for setNeedAppearances()
+     * Test for unsetNeedAppearances()
      *
      * @throws JsonException
      */
-    public function testSetNeedAppearances()
+    public function testUnsetNeedAppearances()
     {
         $doc = $this->makeDocumentInstance();
         $doc->setNeedAppearances();
+        $doc->unsetNeedAppearances();
         $body = $this->getRequestBodyFromDoc($doc);
 
-        $this->assertContains('need_appearances', $body->flags);
+        $this->assertNotContains('need_appearances', $body->flags);
     }
 
     /**
-     * Test for setCompress()
+     * Test for unsetCompress()
      *
      * @throws JsonException
      */
-    public function testSetCompress()
+    public function testUnsetCompress()
     {
         $doc = $this->makeDocumentInstance();
         $doc->setCompress();
+        $doc->unsetCompress();
         $body = $this->getRequestBodyFromDoc($doc);
 
-        $this->assertContains('compress', $body->flags);
+        $this->assertNotContains('compress', $body->flags);
     }
 
     /**
-     * Test for setUncompress()
+     * Test for unsetUncompress()
      *
      * @throws JsonException
      */
-    public function testSetUncompress()
+    public function testUnsetUncompress()
     {
         $doc = $this->makeDocumentInstance();
         $doc->setUncompress();
+        $doc->unsetUncompress();
         $body = $this->getRequestBodyFromDoc($doc);
 
-        $this->assertContains('uncompress', $body->flags);
+        $this->assertNotContains('uncompress', $body->flags);
     }
 
     /**
-     * Test for setKeepFirstId()
+     * Test for unsetKeepFirstId()
      *
      * @throws JsonException
      */
-    public function testSetKeepFirstId()
+    public function testUnsetKeepFirstId()
     {
         $doc = $this->makeDocumentInstance();
         $doc->setKeepFirstId();
+        $doc->unsetKeepFirstId();
         $body = $this->getRequestBodyFromDoc($doc);
 
-        $this->assertContains('keep_first_id', $body->flags);
+        $this->assertNotContains('keep_first_id', $body->flags);
     }
 
     /**
-     * Test for setKeepFinalId()
+     * Test for unsetKeepFinalId()
      *
      * @throws JsonException
      */
-    public function testSetKeepFinalId()
+    public function testUnsetKeepFinalId()
     {
         $doc = $this->makeDocumentInstance();
         $doc->setKeepFinalId();
+        $doc->unsetKeepFinalId();
         $body = $this->getRequestBodyFromDoc($doc);
 
-        $this->assertContains('keep_final_id', $body->flags);
+        $this->assertNotContains('keep_final_id', $body->flags);
     }
 
     /**
-     * Test for setDropXfa()
+     * Test for unsetDropXfa()
      *
      * @throws JsonException
      */
-    public function testSetDropXfa()
+    public function testUnsetDropXfa()
     {
         $doc = $this->makeDocumentInstance();
         $doc->setDropXfa();
+        $doc->unsetDropXfa();
         $body = $this->getRequestBodyFromDoc($doc);
 
-        $this->assertContains('drop_xfa', $body->flags);
+        $this->assertNotContains('drop_xfa', $body->flags);
     }
 
     /**
-     * Test for setAllow()
+     * Test for unsetAllow()
      *
      * @throws JsonException
      */
-    public function testSetAllow()
+    public function testUnsetAllow()
     {
         $doc = $this->makeDocumentInstance();
         $optionValue = null;
         $doc->setAllow($optionValue);
+        $doc->unsetAllow();
         $body = $this->getRequestBodyFromDoc($doc);
 
-        $this->assertContains('allow', $body->options);
+        $this->assertNotContains('allow', $body->options);
     }
 
     /**
-     * Test for setOwnerPw()
+     * Test for unsetOwnerPw()
      *
      * @throws JsonException
      */
-    public function testSetOwnerPw()
+    public function testUnsetOwnerPw()
     {
         $doc = $this->makeDocumentInstance();
         $optionValue = null;
         $doc->setOwnerPw($optionValue);
+        $doc->unsetOwnerPw();
         $body = $this->getRequestBodyFromDoc($doc);
 
-        $this->assertContains('owner_pw', $body->options);
+        $this->assertNotContains('owner_pw', $body->options);
     }
 
     /**
-     * Test for setUserPw()
+     * Test for unsetUserPw()
      *
      * @throws JsonException
      */
-    public function testSetUserPw()
+    public function testUnsetUserPw()
     {
         $doc = $this->makeDocumentInstance();
         $optionValue = null;
         $doc->setUserPw($optionValue);
+        $doc->unsetUserPw();
         $body = $this->getRequestBodyFromDoc($doc);
 
-        $this->assertContains('user_pw', $body->options);
+        $this->assertNotContains('user_pw', $body->options);
     }
 
 }

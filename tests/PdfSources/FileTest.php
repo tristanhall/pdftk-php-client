@@ -20,6 +20,7 @@ class FileTest extends TestCase
     {
         $file = new File();
 
+        $this->assertNotNull($file->getFilePath());
         $this->assertEmpty($file->getFilePath());
     }
 
@@ -32,16 +33,6 @@ class FileTest extends TestCase
         $file = new File($filePath);
 
         $this->assertEquals($filePath, $file->getFilePath());
-    }
-
-    /**
-     * Test for __construct() passing a non-string as the argument.
-     */
-    public function testConstructNonStringArg()
-    {
-        $file = new File(1);
-
-        $this->assertEmpty($file->getFilePath());
     }
 
     /**
