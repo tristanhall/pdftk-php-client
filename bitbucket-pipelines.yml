@@ -8,7 +8,8 @@ pipelines:
         caches:
           - composer
         script:
-          - echo "Run Unit Tests Here"
+          - composer install -o --no-suggest
+          - vendor/bin/phpunit
     develop:
     - step:
         name: Deploy to AWS
@@ -17,4 +18,5 @@ pipelines:
         caches:
           - composer
         script:
-          - echo "Run Unit Tests Here"
+          - composer install -o --no-suggest
+          - vendor/bin/phpunit
