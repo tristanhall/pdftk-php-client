@@ -1,35 +1,24 @@
 pipelines:
   branches:
     main:
-      - step:
-          name: Run Unit Tests
-          deployment: Production
-          image: ubuntu:20.04
-          caches:
-            - composer
-          script:
-            - bash ./bin/pipelines/install_dependencies.sh
-            - composer install -o --no-suggest
-            - vendor/bin/phpunit
+    - step:
+        name: Run Unit Tests
+        deployment: Production
+        image: ubuntu:20.04
+        caches:
+          - composer
+        script:
+          - bash ./bin/pipelines/install_dependencies.sh
+          - composer install -o --no-suggest
+          - vendor/bin/phpunit
     develop:
-      - step:
-          name: Deploy to AWS
-          deployment: Test
-          image: ubuntu:20.04
-          caches:
-            - composer
-          script:
-            - bash ./bin/pipelines/install_dependencies.sh
-            - composer install -o --no-suggest
-            - vendor/bin/phpunit
-    feature/MMS-546-unit-tests-for-pdftk-php-client:
-      - step:
-          name: Deploy to AWS
-          deployment: Test
-          image: ubuntu:20.04
-          caches:
-            - composer
-          script:
-            - bash ./bin/pipelines/install_dependencies.sh
-            - composer install -o --no-suggest
-            - vendor/bin/phpunit
+    - step:
+        name: Deploy to AWS
+        deployment: Test
+        image: ubuntu:20.04
+        caches:
+          - composer
+        script:
+          - bash ./bin/pipelines/install_dependencies.sh
+          - composer install -o --no-suggest
+          - vendor/bin/phpunit
