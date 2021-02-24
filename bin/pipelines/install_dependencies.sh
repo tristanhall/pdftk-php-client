@@ -23,13 +23,5 @@ mv -f composer.phar /usr/local/bin/composer || exit 1
 # Test Composer installation
 /usr/local/bin/composer --version || exit 1
 
-# Configure Node.js repository
-curl -sSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -
-echo "deb https://deb.nodesource.com/node_14.x focal main" | tee /etc/apt/sources.list.d/nodesource.list
-echo "deb-src https://deb.nodesource.com/node_14.x focal main" | tee -a /etc/apt/sources.list.d/nodesource.list
-
 # Update APT repositories
 apt-get update || exit 1
-
-# Install Node.js 14
-DEBIAN_FRONTEND=noninteractive apt-get install -yq nodejs || exit 1
