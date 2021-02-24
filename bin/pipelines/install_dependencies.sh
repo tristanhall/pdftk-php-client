@@ -3,8 +3,8 @@
 apt-get update || exit 1
 
 # Install software packages
-DEBIAN_FRONTEND=noninteractive apt-get install -yq software-properties-common apt-utils || exit 1
-DEBIAN_FRONTEND=noninteractive apt-get install -yq php php-json || exit 1
+DEBIAN_FRONTEND=noninteractive apt-get install -yq software-properties-common apt-utils gnupg2 curl git unzip awscli || exit 1
+DEBIAN_FRONTEND=noninteractive apt-get install -yq php php-json php-mbstring php-xml php-curl php-bcmath php-gd php-zip php-mysql || exit 1
 
 which php
 
