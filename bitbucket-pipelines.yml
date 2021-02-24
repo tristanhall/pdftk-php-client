@@ -8,6 +8,7 @@ pipelines:
         caches:
           - composer
         script:
+          - bash ./bin/pipelines/install_dependencies.sh
           - composer install -o --no-suggest
           - vendor/bin/phpunit
     develop:
@@ -18,5 +19,6 @@ pipelines:
         caches:
           - composer
         script:
+          - bash ./bin/pipelines/install_dependencies.sh
           - composer install -o --no-suggest
           - vendor/bin/phpunit
