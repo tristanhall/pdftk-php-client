@@ -3,7 +3,7 @@
 apt-get update || exit 1
 
 # Install software packages
-DEBIAN_FRONTEND=noninteractive apt-get install -yq software-properties-common apt-utils gnupg2 curl git unzip awscli || exit 1
+DEBIAN_FRONTEND=noninteractive apt-get install -yq software-properties-common apt-utils gnupg2 curl git unzip || exit 1
 DEBIAN_FRONTEND=noninteractive apt-get install -yq php php-json php-mbstring php-xml php-curl php-bcmath php-gd php-zip php-mysql || exit 1
 
 which php
@@ -22,6 +22,3 @@ mv -f composer.phar /usr/local/bin/composer || exit 1
 
 # Test Composer installation
 /usr/local/bin/composer --version || exit 1
-
-# Update APT repositories
-apt-get update || exit 1
