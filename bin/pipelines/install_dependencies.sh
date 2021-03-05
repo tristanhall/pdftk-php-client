@@ -22,3 +22,6 @@ mv -f composer.phar /usr/local/bin/composer || exit 1
 
 # Test Composer installation
 /usr/local/bin/composer --version || exit 1
+
+# Install Composer packages
+/usr/local/bin/composer install -oqn --no-progress
