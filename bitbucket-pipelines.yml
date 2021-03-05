@@ -9,8 +9,7 @@ pipelines:
           - composer
         script:
           - bash ./bin/pipelines/install_dependencies.sh
-          - composer install -o --no-suggest
-          - vendor/bin/phpunit
+          - vendor/bin/phpunit --testdox
     develop:
     - step:
         name: Deploy to AWS
@@ -20,5 +19,4 @@ pipelines:
           - composer
         script:
           - bash ./bin/pipelines/install_dependencies.sh
-          - composer install -o --no-suggest
-          - vendor/bin/phpunit
+          - vendor/bin/phpunit --testdox
